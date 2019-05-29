@@ -1,6 +1,7 @@
 package Chapter2;
 
-public class Problem2 {
+public class Problem3 {
+
 
 
 
