@@ -1,11 +1,26 @@
 package Chapter2;
 
-public class Problem_2_3 {
 
-    public int size = 1;
+/*
+Solutions for problems 2.3, 2.3
+Implemented in class CustomLinkedList
+ */
+
+public class CustomLinkedList {
+
+    public int size = 0;
     public Node head;
-    class Node {
+    public class Node {
         public Node next;
+
+        public int getData() {
+            return data;
+        }
+
+        public void setData(int data) {
+            this.data = data;
+        }
+
         public int data;
 
         public Node(int data) {
@@ -59,33 +74,44 @@ public class Problem_2_3 {
     public void add(Object object) {
         Node last = null;
         Node temp = head;
-        while(temp.next!=null){
-            temp = temp.next;
+        if(size==1){
+           temp = new Node((int)object);
+           head = temp;
+        } else {
+            try{
+                while (temp.next != null) {
+                    temp = temp.next;
+                }
+                last = temp;
+                Node newLast = (Node) object;
+                last.next = newLast;
+            } catch (NullPointerException e) {
+                System.out.println("null pointer...");
+            }
+
         }
-        last = temp;
-        Node newLast = (Node)object;
-        last.next = newLast;
+
 
 
     }
 
 
-    public Object get(int index) {
+    public int get(int index) {
         int count = 0;
         Node result = head;
         if(index==0){
-            return head;
+            return head.data;
         }
         while(count!=index && index<size){
             result = result.next;
             count++;
         }
         if(count==index){
-            return result;
+            return result.data;
         } else{
             System.out.println("there is no such index in List");
         }
-        return null;
+        return 0;
 
     }
 
