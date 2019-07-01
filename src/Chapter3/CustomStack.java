@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 package Chapter3;
 
 import java.util.EmptyStackException;
@@ -61,3 +62,27 @@ public class CustomStack<T> {
     }
 
 }
+=======
+package Chapter3;
+
+public class CustomStack<T> {
+    private static class StackNode<T>{
+        private T data;
+        private StackNode<T> next;
+
+        public StackNode(T data){
+            this.data = data;
+        }
+    }
+
+    private StackNode<T> top;
+
+
+
+
+
+
+
+
+}
+>>>>>>> Stashed changes
