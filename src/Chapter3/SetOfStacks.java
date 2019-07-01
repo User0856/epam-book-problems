@@ -1,6 +1,7 @@
 package Chapter3;
 
 import java.util.ArrayList;
+import java.util.EmptyStackException;
 
 public class SetOfStacks<T> {
 
@@ -30,6 +31,15 @@ public class SetOfStacks<T> {
         }
         return (T) topStack.pop();
 
+    }
+
+    public T popAt(int index){
+        if(list.get(index).getSize()==0){
+            list.remove(list.size()-1);
+            topStack = list.get(list.size()-1);
+            throw new EmptyStackException();
+        }
+        return (T) list.get(index).pop();
     }
 
 }
